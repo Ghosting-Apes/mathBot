@@ -1,8 +1,6 @@
-import discord
-import random
-from discord.ext import commands
-
-TOKEN = "MTAzMzU0ODQwMzc5NzQxMzkyOA.Gk4bZv.6dFlHzq4nvZsgEFOQqrS7_ZpL55u7vnjSBbJqw"
+import discord, random, os, sys
+# from discord.ext import commands
+from private.vars import *
 
 client = discord.Client(intents=discord.Intents.default())
 
@@ -14,8 +12,14 @@ arr = []
 global y, add, test, x, ans
 y = random.randint(1,5)
 add = random.randint(1, 5)
-test = False
 x = random.randint(1,5)
+
+def betterProblemGenerator():
+    eq = []
+    op = ["+", "-", "*", "/"]
+    numOfValues = random.randint(1,4)
+    numOfOperations = numOfValues-1
+
 
 
 def problemGenerator():
@@ -79,4 +83,4 @@ async def on_message(message):
 def rand(start: int):
     return random.randint(start + 5, 10)
 
-client.run(TOKEN)
+client.run(DISCORD_TOKEN)
