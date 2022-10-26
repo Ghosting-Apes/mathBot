@@ -1,6 +1,5 @@
 import discord, random
 # from discord.ext import commands
-from env import *
 
 client = discord.Client(intents=discord.Intents.default())
 
