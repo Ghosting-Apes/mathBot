@@ -1,6 +1,6 @@
-import discord, random, os, sys
+import discord, random
 # from discord.ext import commands
-from private.vars import *
+from env import *
 
 client = discord.Client(intents=discord.Intents.default())
 
