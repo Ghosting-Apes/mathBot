@@ -2,16 +2,7 @@ import discord, random, os, sys
 from env import DISCORD_TOKEN
 
 client = discord.Client(intents=discord.Intents.default())
-
 TOKEN = os.getenv(DISCORD_TOKEN)
-
-arr = []
-global y, add, test, x, ans
-y = random.randint(1,5)
-add = random.randint(1, 5)
-test = False
-x = random.randint(1,5)
-
 
 def problemGenerator():
     eq = []
@@ -48,21 +39,12 @@ async def on_ready():
 
 @client.event
 async def on_message(message):
-    global y, add, test, x
-    values = []
-    if test:
-        x = random.randint(1,5)
-        test = False
+    global y, add, x
+    x = random.randint(1,5)
+    y = random.randint(1,5)
     if message.author == client.user:
         return
     if y == x:
         await message.channel.send(problemGenerator())
-        test = True
-    else:
-        y = random.randint(1,5)
-
-
-def rand(start: int):
-    return random.randint(start + 5, 10)
 
 client.run(DISCORD_TOKEN)
